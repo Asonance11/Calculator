@@ -2,12 +2,12 @@
 *::before,
 *::after {
 	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
 	font-family: 'consolas', sans-serif;
 }
 body {
-	background-color: #59a59d;
+	margin: 0;
+	padding: 0;
+	background-color: #055f51;
 }
 .calculator {
 	display: grid;
@@ -16,6 +16,7 @@ body {
 	min-height: 100vh;
 	grid-template-columns: repeat(4, 100px);
 	grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+	border-radius: 30px;
 }
 .calculator > .btn {
 	cursor: pointer;
@@ -29,8 +30,27 @@ body {
 }
 .spanTwo {
 	grid-column: span 2;
+	background-color: #59a59d;
+	outline: none;
+	border: 1px solid #9caaa8;
+	font-size: 2rem;
 }
 .output {
 	grid-column: 1 / -1;
 	background-color: #f4f4f4;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	justify-content: space-around;
+	padding: 10px;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+.output .previous-op {
+	color: #59a59d;
+	font-size: 1.5rem;
+}
+.output .current-op {
+	color: #010505;
+	font-size: 2.5rem;
 }
