@@ -6,3 +6,14 @@ const plusMinus = document.getElementById(plusMinus);
 const percent = document.getElementById(percent);
 const numberButtons = document.querySelectorAll([data - number]);
 const operationButtons = document.querySelectorAll([data - operation]);
+let currentOp;
+let previousOp;
+
+function appendNumber(number) {
+	currentOperation.textContent += number;
+}
+numberButtons.forEach((button) => {
+	button.addEventListener('click', () => {
+		console.log(button.innerText);
+	});
+});
