@@ -34,6 +34,7 @@ body {
 	outline: none;
 	border: 1px solid #9caaa8;
 	font-size: 2rem;
+	cursor: pointer;
 }
 .output {
 	grid-column: 1 / -1;
