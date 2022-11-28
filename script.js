@@ -18,20 +18,42 @@ function chooseOperation(operation) {
 		compute();
 	}
 	op = operation;
-	previousOperation.textContent = currentOperation.textContent;
+	previousOperation.textContent = `${currentOperation.textContent} ${op}`;
 	currentOperation.textContent = '';
 }
 function compute() {
 	let result;
-	if (
-		isNaN(currentOperation.textContent) &&
-		isNaN(previousOperation.textContent)
-	)
-		return;
+	const pv = parseFloat(previousOperation.textContent);
+	const cr = parseFloat(currentOperation.textContent);
+	if (isNaN(pv) && isNaN(cr)) return;
+	switch (op) {
+		case '+':
+			result = pv + cr;
+			break;
+		case '-':
+			result = pv - cr;
+			break;
+		case 'X':
+			result = pv * cr;
+			break;
+		case '/':
+			result = pv / cr;
+			break;
+		default:
+			return;
+	}
+	currentOperation.textContent = result;
+	previousOperation.textContent = '';
 }
 function clear() {
 	currentOperation.textContent = '';
 	previousOperation.textContent = '';
+}
+function minus() {
+	currentOperation.textContent = currentOperation.textContent * -1;
+}
+function percentage() {
+	currentOperation.textContent = currentOperation.textContent * 0.01;
 }
 numberButtons.forEach((button) => {
 	button.addEventListener('click', () => {
@@ -44,3 +66,6 @@ operationButtons.forEach((button) => {
 	});
 });
 clearButton.addEventListener('click', clear);
+equalsButton.addEventListener('click', compute);
+plusMinus.addEventListener('click', minus);
+percent.addEventListener('click', percentage);
