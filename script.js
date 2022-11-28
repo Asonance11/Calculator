@@ -10,8 +10,10 @@ const operationButtons = document.querySelectorAll('[data-operation]');
 //let previousOp;
 
 function appendNumber(number) {
+	if (number === '.' && currentOperation.textContent.includes('.')) return;
 	currentOperation.textContent += number;
 }
+function chooseOperation(operation) {}
 function clear() {
 	currentOperation.textContent = '';
 	previousOperation.textContent = '';
